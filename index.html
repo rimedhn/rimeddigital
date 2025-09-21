@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rimed Digital - Digitalización de Negocios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* BEM Methodology CSS */
+        .hero__gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav__mobile {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav__mobile--active {
+            transform: translateX(0);
+        }
+        
+        .btn--primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .section__title {
+            position: relative;
+        }
+        
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50" role="banner">
+        <nav class="container mx-auto px-4 py-4" role="navigation" aria-label="Navegación principal">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-digital-tachograph text-white text-xl" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">Rimed Digital</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8" role="menubar">
+                    <li role="none"><a href="#inicio" class="text-gray-700 hover:text-purple-600 transition-colors font-medium" role="menuitem">Inicio</a></li>
+                    <li role="none"><a href="#nosotros" class="text-gray-700 hover:text-purple-600 transition-colors font-medium" role="menuitem">Nosotros</a></li>
+                    <li role="none"><a href="#servicios" class="text-gray-700 hover:text-purple-600 transition-colors font-medium" role="menuitem">Servicios</a></li>
+                    <li role="none"><a href="#contacto" class="text-gray-700 hover:text-purple-600 transition-colors font-medium" role="menuitem">Contacto</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600" 
+                        onclick="toggleMobileMenu()" 
+                        aria-label="Abrir menú de navegación"
+                        aria-expanded="false"
+                        id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="nav__mobile md:hidden fixed top-0 left-0 w-full h-full bg-white z-50" id="mobile-menu" role="menu">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <span class="text-xl font-bold text-gray-800">Menú</span>
+                    <button onclick="toggleMobileMenu()" 
+                            aria-label="Cerrar menú de navegación"
+                            class="text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        <i class="fas fa-times text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <ul class="p-4 space-y-4">
+                    <li><a href="#inicio" class="block text-gray-700 hover:text-purple-600 py-2 text-lg" onclick="toggleMobileMenu()" role="menuitem">Inicio</a></li>
+                    <li><a href="#nosotros" class="block text-gray-700 hover:text-purple-600 py-2 text-lg" onclick="toggleMobileMenu()" role="menuitem">Nosotros</a></li>
+                    <li><a href="#servicios" class="block text-gray-700 hover:text-purple-600 py-2 text-lg" onclick="toggleMobileMenu()" role="menuitem">Servicios</a></li>
+                    <li><a href="#contacto" class="block text-gray-700 hover:text-purple-600 py-2 text-lg" onclick="toggleMobileMenu()" role="menuitem">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero__gradient pt-20 pb-16 text-white" role="main">
+        <div class="container mx-auto px-4 py-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="hero__title text-4xl md:text-6xl font-bold mb-6">
+                    Digitalizamos tu Negocio
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Transformamos emprendimientos tradicionales en negocios digitales exitosos con soluciones integrales de marketing digital y desarrollo web.
+                </p>
+                <a href="#contacto" class="btn--primary inline-block px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-300">
+                    Comenzar Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-16 bg-gray-50" role="region" aria-labelledby="about-title">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 id="about-title" class="section__title text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Acerca de Nosotros
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    En Rimed Digital somos especialistas en la transformación digital de negocios y emprendimientos. 
+                    Nuestro equipo combina creatividad, tecnología y estrategia para llevar tu negocio al siguiente nivel.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-purple-600 text-2xl" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Innovación</h3>
+                    <p class="text-gray-600">Utilizamos las últimas tecnologías y tendencias digitales para impulsar tu negocio.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-blue-600 text-2xl" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Experiencia</h3>
+                    <p class="text-gray-600">Años de experiencia ayudando a negocios a crecer en el mundo digital.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-green-600 text-2xl" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Resultados</h3>
+                    <p class="text-gray-600">Nos enfocamos en generar resultados medibles y crecimiento sostenible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-16" role="region" aria-labelledby="services-title">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 id="services-title" class="section__title text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Nuestros Servicios
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos soluciones digitales completas para transformar y hacer crecer tu negocio en línea.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Marketing Digital -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-purple-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bullhorn text-purple-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Marketing Digital</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Gestión de redes sociales</li>
+                        <li>• Creación de contenido visual y video</li>
+                        <li>• Programación de anuncios publicitarios</li>
+                        <li>• Estrategias de marketing digital</li>
+                    </ul>
+                </div>
+                
+                <!-- Desarrollo Web -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-blue-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-code text-blue-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Desarrollo Web</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Sitios web informativos</li>
+                        <li>• Tiendas en línea</li>
+                        <li>• Catálogos web con carrito</li>
+                        <li>• Sistemas de gestión personalizados</li>
+                    </ul>
+                </div>
+                
+                <!-- Presencia Digital -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-green-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-map-marker-alt text-green-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Presencia Digital</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Perfil de negocio en Google</li>
+                        <li>• Optimización en mapas</li>
+                        <li>• Plataformas de pagos electrónicos</li>
+                        <li>• Menús digitales y QR</li>
+                    </ul>
+                </div>
+                
+                <!-- Aplicaciones -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-red-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-mobile-alt text-red-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Aplicaciones</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Aplicaciones móviles</li>
+                        <li>• Aplicaciones web</li>
+                        <li>• Menús de pantalla</li>
+                        <li>• Soluciones personalizadas</li>
+                    </ul>
+                </div>
+                
+                <!-- Facturación -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-yellow-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-file-invoice text-yellow-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Sistemas de Gestión</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Sistemas de facturación</li>
+                        <li>• Gestión de información</li>
+                        <li>• Soluciones personalizadas</li>
+                        <li>• Integración de procesos</li>
+                    </ul>
+                </div>
+                
+                <!-- Consultoría -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 border-t-4 border-indigo-500">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-lightbulb text-indigo-500 text-3xl mb-3" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Consultoría Digital</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Análisis de necesidades</li>
+                        <li>• Estrategias de digitalización</li>
+                        <li>• Optimización de procesos</li>
+                        <li>• Capacitación y soporte</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-gray-50" role="region" aria-labelledby="contact-title">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 id="contact-title" class="section__title text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Contáctanos
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    ¿Listo para digitalizar tu negocio? Contáctanos y comencemos a trabajar juntos.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone text-purple-600" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Teléfono</h3>
+                            <a href="tel:93593126" class="text-gray-600 hover:text-purple-600 transition-colors">93593126</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Email</h3>
+                            <a href="mailto:indime.hn@gmail.com" class="text-gray-600 hover:text-blue-600 transition-colors">indime.hn@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="pt-8">
+                        <h3 class="font-semibold text-gray-800 mb-4">Síguenos en Redes Sociales</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-300" aria-label="Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center text-white hover:bg-blue-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                   placeholder="Tu nombre completo">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                   placeholder="tu@email.com">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                   placeholder="Tu número de teléfono">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Servicio de Interés</label>
+                            <select id="service" name="service" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="marketing-digital">Marketing Digital</option>
+                                <option value="desarrollo-web">Desarrollo Web</option>
+                                <option value="presencia-digital">Presencia Digital</option>
+                                <option value="aplicaciones">Aplicaciones</option>
+                                <option value="sistemas-gestion">Sistemas de Gestión</option>
+                                <option value="consultoria">Consultoría Digital</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                      placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn--primary w-full py-3 px-6 rounded-lg text-white font-semibold hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-digital-tachograph text-white" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xl font-bold">Rimed Digital</span>
+                    </div>
+                    <p class="text-gray-300">
+                        Transformamos negocios tradicionales en empresas digitales exitosas.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Servicios</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Marketing Digital</li>
+                        <li>Desarrollo Web</li>
+                        <li>Aplicaciones Móviles</li>
+                        <li>Consultoría Digital</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fas fa-phone mr-2" aria-hidden="true"></i> 93593126</p>
+                        <p><i class="fas fa-envelope mr-2" aria-hidden="true"></i> indime.hn@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 Rimed Digital. Todos los derechos reservados.</p>
+                <p class="mt-2">Developed by <a href="https://github.com/rimedhn" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 transition-colors">@rimedhn</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            mobileMenu.classList.toggle('nav__mobile--active');
+            
+            const isActive = mobileMenu.classList.contains('nav__mobile--active');
+            menuButton.setAttribute('aria-expanded', isActive);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.remove('nav__mobile--active');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9825d25c85f0139c',t:'MTc1ODQxODQ4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
